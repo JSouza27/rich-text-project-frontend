@@ -6,18 +6,12 @@ import Editor from '@draft-js-plugins/editor';
 import Container from '@mui/material/Container';
 import { styled } from '@mui/styles';
 
-import createHighlightPlugin from './plugins/highlightPlugin';
-
 const PageContainer = styled(Container)({
   height: '100vh',
   padding: '100px',
 });
 
-const highlightPlugin = createHighlightPlugin();
-
-const plugins = [highlightPlugin];
-
-function MyEditor({ editorState, updateEditorState }) {
+function MyEditor({ editorState, updateEditorState, plugins }) {
   const editor = React.useRef(null);
 
   const focusEditor = () => {
@@ -51,6 +45,7 @@ function MyEditor({ editorState, updateEditorState }) {
 MyEditor.propTypes = {
   updateEditorState: PropTypes.func.isRequired,
   editorState: PropTypes.shape.isRequired,
+  plugins: PropTypes.arrayOf.isRequired,
 };
 
 export default MyEditor;

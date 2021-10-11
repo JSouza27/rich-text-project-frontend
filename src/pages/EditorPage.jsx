@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { EditorState } from 'draft-js';
-
 import Container from '@mui/material/Container';
 
 import MyEditor from '../components/MyEditor';
 import EditorBar from '../components/EditorBar';
+
+import createHighlightPlugin from '../plugins/highlightPlugin';
+
+const highlightPlugin = createHighlightPlugin();
+
+const plugins = [highlightPlugin];
 
 function EditorPage() {
   const [editorState, setEditorState] = useState(
@@ -24,6 +29,7 @@ function EditorPage() {
       <MyEditor
         editorState={ editorState }
         updateEditorState={ updateEditorState }
+        plugins={ plugins }
       />
     </Container>
   );

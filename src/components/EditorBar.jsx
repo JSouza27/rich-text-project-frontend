@@ -4,7 +4,12 @@ import { RichUtils } from 'draft-js';
 
 import { useTheme, styled } from '@mui/styles';
 import { AppBar, Toolbar, IconButton, Container } from '@mui/material';
-import { FormatBold, FormatItalic, BorderColor } from '@mui/icons-material/';
+import {
+  FormatBold,
+  FormatItalic,
+  BorderColor,
+  FormatUnderlined,
+} from '@mui/icons-material/';
 
 const MenuButton = styled(({ color, ...other }) => <IconButton { ...other } />)({
   border: 0,
@@ -30,6 +35,10 @@ function EditorBar({ editorState, updateEditorState }) {
     updateEditorState(RichUtils.toggleInlineStyle(editorState, 'HIGHLIGHT'));
   };
 
+  const onUnderline = () => {
+    updateEditorState(RichUtils.toggleInlineStyle(editorState, 'UNDERLINE'));
+  };
+
   return (
     <AppBar sx={ { backgroundColor: background.main } }>
       <Toolbar position="fixed">
@@ -39,6 +48,13 @@ function EditorBar({ editorState, updateEditorState }) {
           </MenuButton>
           <MenuButton color={ title.main } aria-label="italic" onClick={ onItalicClick }>
             <FormatItalic />
+          </MenuButton>
+          <MenuButton
+            color={ title.main }
+            aria-label="underlie"
+            onClick={ onUnderline }
+          >
+            <FormatUnderlined />
           </MenuButton>
           <MenuButton color={ title.main } aria-label="highlight" onClick={ onHighlight }>
             <BorderColor />
