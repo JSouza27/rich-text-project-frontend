@@ -9,6 +9,7 @@ import {
   FormatItalic,
   BorderColor,
   FormatUnderlined,
+  FormatStrikethrough,
 } from '@mui/icons-material/';
 
 const MenuButton = styled(({ color, ...other }) => <IconButton { ...other } />)({
@@ -39,6 +40,10 @@ function EditorBar({ editorState, updateEditorState }) {
     updateEditorState(RichUtils.toggleInlineStyle(editorState, 'UNDERLINE'));
   };
 
+  const onStrikeThroughtClick = () => {
+    updateEditorState(RichUtils.toggleInlineStyle(editorState, 'STRIKETHROUGH'));
+  };
+
   return (
     <AppBar sx={ { backgroundColor: background.main } }>
       <Toolbar position="fixed">
@@ -55,6 +60,13 @@ function EditorBar({ editorState, updateEditorState }) {
             onClick={ onUnderline }
           >
             <FormatUnderlined />
+          </MenuButton>
+          <MenuButton
+            color={ title.main }
+            aria-label="strike through"
+            onClick={ onStrikeThroughtClick }
+          >
+            <FormatStrikethrough />
           </MenuButton>
           <MenuButton color={ title.main } aria-label="highlight" onClick={ onHighlight }>
             <BorderColor />
