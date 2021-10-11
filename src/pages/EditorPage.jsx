@@ -3,7 +3,7 @@ import { EditorState } from 'draft-js';
 import Container from '@mui/material/Container';
 
 import MyEditor from '../components/MyEditor';
-import EditorBar from '../components/EditorBar';
+import EditorBar from '../components/MenuEditor/EditorBar';
 
 import createHighlightPlugin from '../plugins/highlightPlugin';
 
