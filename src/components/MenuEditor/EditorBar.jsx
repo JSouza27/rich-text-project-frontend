@@ -5,7 +5,7 @@ import { RichUtils } from 'draft-js';
 import { useTheme, styled } from '@mui/styles';
 import { AppBar, Toolbar, IconButton, Container } from '@mui/material';
 
-import inlineStyles from './Constants';
+import { inlineStyles, alignStyles } from './Constants';
 
 const MenuButton = styled(({ color, ...other }) => <IconButton { ...other } />)({
   border: 0,
@@ -23,6 +23,10 @@ function EditorBar({ editorState, updateEditorState }) {
     updateEditorState(RichUtils.toggleInlineStyle(editorState, style));
   };
 
+  const alignTextButton = (align) => {
+    updateEditorState(RichUtils.toggleBlockType(editorState, align));
+  };
+
   return (
     <AppBar sx={ { backgroundColor: background.main } }>
       <Toolbar position="fixed">
@@ -33,6 +37,20 @@ function EditorBar({ editorState, updateEditorState }) {
                 aria-label={ label }
                 color={ title.main }
                 onClick={ () => buttonClick(style) }
+                key={ label + index }
+              >
+                { icon }
+              </MenuButton>
+            ))
+          }
+        </Container>
+        <Container>
+          {
+            alignStyles.map(({ label, style, icon }, index) => (
+              <MenuButton
+                aria-label={ label }
+                color={ title.main }
+                onClick={ () => alignTextButton(style) }
                 key={ label + index }
               >
                 { icon }

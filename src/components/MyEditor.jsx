@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RichUtils } from 'draft-js';
-import Editor from '@draft-js-plugins/editor';
+import { RichUtils, Editor } from 'draft-js';
+// import Editor from '@draft-js-plugins/editor';
 
 import Container from '@mui/material/Container';
 import { styled } from '@mui/styles';

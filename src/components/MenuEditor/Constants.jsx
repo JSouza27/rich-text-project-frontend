@@ -4,6 +4,9 @@ import {
   FormatItalic,
   FormatUnderlined,
   FormatStrikethrough,
+  FormatAlignLeft,
+  FormatAlignCenter,
+  FormatAlignRight,
 } from '@mui/icons-material/';
 
 const inlineStyles = [
@@ -18,15 +21,33 @@ const inlineStyles = [
     icon: <FormatItalic />,
   },
   {
-    label: 'strike through',
+    label: 'undeline',
     style: 'UNDERLINE',
     icon: <FormatUnderlined />,
   },
   {
-    label: 'bold',
+    label: 'strike through',
     style: 'STRIKETHROUGH',
     icon: <FormatStrikethrough />,
   },
 ];
 
-export default inlineStyles;
+const alignStyles = [
+  {
+    label: 'left',
+    style: 'LEFT',
+    icon: <FormatAlignLeft />,
+  },
+  {
+    label: 'center',
+    style: 'CENTER',
+    icon: <FormatAlignCenter />,
+  },
+  {
+    label: 'right',
+    style: 'RIGHT',
+    icon: <FormatAlignRight />,
+  },
+];
+
+export { inlineStyles, alignStyles };
